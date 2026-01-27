@@ -3,359 +3,365 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teamwork, meet deep work</title>
+    <title>Hero Section Recreation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-        /* Hide scrollbar for the app mockup to look clean */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
                     colors: {
                         brand: {
                             orange: '#FF4F28',
-                            orangeHover: '#e6401d',
+                            sidebar: '#F7F7F5',
+                            border: '#E5E5E5',
+                            text: '#111111',
+                            subtext: '#666666'
                         }
                     },
                     boxShadow: {
-                        'app': '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
-                        'inner-light': 'inset 0 1px 0 0 rgba(255, 255, 255, 0.5)',
+                        'hero': '0 20px 50px -12px rgba(0, 0, 0, 0.15)',
+                        'card': '0 1px 3px rgba(0,0,0,0.05)'
                     }
                 }
             }
         }
     </script>
+    <style>
+        /* Custom scrollbar for the mock UI to look cleaner */
+        .mock-ui-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .mock-ui-scroll::-webkit-scrollbar-thumb {
+            background-color: #e5e5e5;
+            border-radius: 3px;
+        }
+        .splash-gradient-left {
+            background: radial-gradient(circle at bottom left, rgba(255, 100, 50, 0.15), transparent 60%);
+        }
+        .splash-gradient-right {
+            background: radial-gradient(circle at bottom right, rgba(255, 160, 50, 0.15), transparent 60%);
+        }
+    </style>
 </head>
-<body class="bg-white text-gray-900 min-h-screen relative overflow-x-hidden">
+<body class="bg-white text-gray-900 font-sans antialiased overflow-x-hidden">
 
-    <!-- Background Decoration (Bottom Splashes) -->
-    <div class="absolute bottom-0 left-0 w-[800px] h-[600px] bg-orange-200/40 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2 pointer-events-none z-0"></div>
-    <div class="absolute bottom-0 right-0 w-[800px] h-[600px] bg-red-200/40 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 pointer-events-none z-0"></div>
+    <!-- Hero Container -->
+    <div class="relative w-full min-h-screen flex flex-col items-center pt-16 pb-20 px-4 sm:px-6 lg:px-8">
 
-    <!-- Main Container -->
-    <div class="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-16 flex flex-col items-center">
+        <!-- Background Splashes (Simulated with images as requested for visual elements) -->
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] -z-10 translate-y-1/4 -translate-x-1/4 opacity-80 pointer-events-none">
+            <img src="https://placehold.co/600x600/FF5733/FFFFFF/png?text=Splash+Left" alt="Decorative Splash" class="w-full h-full object-cover rounded-full blur-3xl opacity-40">
+        </div>
+        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] -z-10 translate-y-1/4 translate-x-1/4 opacity-80 pointer-events-none">
+            <img src="https://placehold.co/600x600/FFC300/FFFFFF/png?text=Splash+Right" alt="Decorative Splash" class="w-full h-full object-cover rounded-full blur-3xl opacity-40">
+        </div>
 
-        <!-- Top Badge -->
-        <a href="#" class="group inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full pl-1 pr-3 py-1 text-sm text-gray-600 hover:bg-gray-50 transition-colors shadow-sm mb-4">
-            <span class="bg-black text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NEW</span>
-            <span>Campsite is winding down</span>
-            <svg class="w-3.5 h-3.5 text-gray-400 group-hover:text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        <!-- Top Badge 1 -->
+        <a href="#" class="group inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-1.5 py-1.5 pr-3 text-sm transition hover:border-gray-300 mb-3">
+            <span class="rounded-full bg-black px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">New</span>
+            <span class="text-gray-600 font-medium text-xs sm:text-sm">Campsite is winding down</span>
+            <svg class="h-3.5 w-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
         </a>
 
-        <!-- Second Badge -->
-        <a href="#" class="group inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-white rounded-full px-4 py-1.5 text-sm font-medium transition-colors shadow-sm mb-10">
+        <!-- Top Badge 2 (Orange) -->
+        <a href="#" class="inline-flex items-center gap-2 rounded-full bg-brand-orange px-4 py-1.5 text-sm font-medium text-white transition hover:bg-orange-600 mb-8 shadow-sm">
             <span>Campsite's founders have joined Notion</span>
-            <svg class="w-4 h-4 text-white/80 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path></svg>
+            <svg class="h-4 w-4 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
         </a>
 
-        <!-- Heading -->
-        <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-center text-gray-900 leading-[1.1] mb-6">
+        <!-- Headings -->
+        <h1 class="text-center text-5xl sm:text-6xl md:text-[64px] font-bold tracking-tight text-gray-900 leading-[1.1] mb-6">
             Teamwork,<br>meet deep work
         </h1>
 
-        <!-- Subheading -->
-        <p class="text-xl text-gray-600 text-center max-w-2xl leading-relaxed mb-16">
-            The new standard for thoughtful team communication — replace noisy chats with focused, organized posts.
+        <p class="text-center text-lg sm:text-xl text-gray-600 max-w-2xl leading-relaxed mb-16">
+            The new standard for thoughtful team communication —<br class="hidden sm:block">
+            replace noisy chats with focused, organized posts.
         </p>
 
-        <!-- App Interface Mockup -->
-        <div class="w-full max-w-[1200px] bg-white rounded-xl shadow-app border border-gray-200 overflow-hidden flex h-[750px] text-sm select-none">
-            
-            <!-- Left Sidebar -->
-            <div class="w-[240px] bg-[#F9F9F8] flex flex-col border-r border-gray-200 flex-shrink-0">
-                <!-- Window Controls -->
-                <div class="flex gap-1.5 px-4 py-4">
-                    <div class="w-3 h-3 rounded-full bg-[#FF5F57] border border-[#E0443E]"></div>
-                    <div class="w-3 h-3 rounded-full bg-[#FEBC2E] border border-[#D89E24]"></div>
-                    <div class="w-3 h-3 rounded-full bg-[#28C840] border border-[#1AAB29]"></div>
-                </div>
-
-                <!-- Org Switcher -->
-                <div class="px-3 mb-2">
-                    <button class="w-full flex items-center justify-between px-2 py-1.5 hover:bg-gray-200/60 rounded-md transition-colors group">
-                        <div class="flex items-center gap-2">
-                            <div class="w-5 h-5 bg-gray-900 rounded text-white flex items-center justify-center text-[10px] font-bold">A</div>
-                            <span class="font-semibold text-gray-900">Acme, Inc.</span>
-                        </div>
-                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg>
-                    </button>
-                </div>
-
-                <!-- New Post Button -->
-                <div class="px-3 mb-4">
-                    <button class="w-full bg-white border border-gray-200 shadow-sm rounded-md py-1.5 text-gray-700 font-medium hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
-                        New post
-                    </button>
-                    <div class="relative mt-2">
-                         <div class="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
-                            <svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </div>
-                        <input type="text" class="block w-full pl-8 pr-2 py-1.5 border-none bg-transparent rounded-md text-sm placeholder-gray-400 focus:ring-0" placeholder="">
+        <!-- App UI Mockup -->
+        <div class="relative w-full max-w-[1200px] mx-auto perspective-1000">
+            <div class="relative bg-white rounded-xl shadow-hero border border-gray-200 overflow-hidden flex flex-col md:flex-row h-[700px] md:h-[800px] lg:h-[720px]">
+                
+                <!-- Left Sidebar -->
+                <div class="w-full md:w-[260px] bg-brand-sidebar flex-shrink-0 flex flex-col border-r border-gray-200">
+                    <!-- Window Controls -->
+                    <div class="px-5 pt-5 pb-2 flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-[#FF5F57] border border-[#E0443E]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#FEBC2E] border border-[#D89E24]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#28C840] border border-[#1AAB29]"></div>
                     </div>
-                </div>
 
-                <!-- Navigation -->
-                <nav class="flex-1 px-2 space-y-0.5 overflow-y-auto no-scrollbar">
-                    <a href="#" class="flex items-center gap-2 px-2 py-1.5 bg-gray-200/60 text-gray-900 rounded-md font-medium">
-                        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                        Home
-                    </a>
-                    <a href="#" class="flex items-center gap-2 px-2 py-1.5 text-gray-600 hover:bg-gray-200/50 rounded-md font-medium">
-                        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
-                        Inbox
-                    </a>
-                    <a href="#" class="flex items-center gap-2 px-2 py-1.5 text-gray-600 hover:bg-gray-200/50 rounded-md font-medium">
-                        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-                        Messages
-                    </a>
-                    <a href="#" class="flex items-center gap-2 px-2 py-1.5 text-gray-600 hover:bg-gray-200/50 rounded-md font-medium">
-                        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        Docs
-                    </a>
-                    <a href="#" class="flex items-center gap-2 px-2 py-1.5 text-gray-600 hover:bg-gray-200/50 rounded-md font-medium">
-                        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                        Calls
-                    </a>
-
-                    <div class="pt-6 pb-2 px-2">
-                        <div class="flex items-center justify-between text-xs font-medium text-gray-400 mb-2">
-                            <span>Favorites</span>
-                            <svg class="w-3 h-3 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                        <a href="#" class="flex items-center gap-2 px-2 py-1.5 text-gray-600 hover:bg-gray-200/50 rounded-md">
-                            <img src="https://placehold.co/20x20/333/fff?text=R" class="w-5 h-5 rounded-full" alt="Ryan">
-                            <span>Ryan Nystrom</span>
-                        </a>
-                        <a href="#" class="flex items-center gap-2 px-2 py-1.5 text-gray-600 hover:bg-gray-200/50 rounded-md">
-                            <img src="https://placehold.co/20x20/444/fff?text=N" class="w-5 h-5 rounded-full" alt="Nick">
-                            <span>Nick Holden</span>
-                        </a>
-                        <a href="#" class="flex items-center gap-2 px-2 py-1.5 text-gray-600 hover:bg-gray-200/50 rounded-md">
-                            <span class="w-5 h-5 flex items-center justify-center text-xs">🦁</span>
-                            <span>Founders</span>
-                            <svg class="w-3 h-3 text-gray-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                        </a>
-                        <a href="#" class="flex items-center gap-2 px-2 py-1.5 text-gray-600 hover:bg-gray-200/50 rounded-md">
-                            <span class="w-5 h-5 flex items-center justify-center text-xs">📄</span>
-                            <span>Investor update Q3 ...</span>
-                        </a>
-                        <a href="#" class="flex items-center gap-2 px-2 py-1.5 text-gray-600 hover:bg-gray-200/50 rounded-md">
-                            <span class="w-5 h-5 flex items-center justify-center text-xs">📝</span>
-                            <span>Scratchpad</span>
-                        </a>
-                    </div>
-                </nav>
-            </div>
-
-            <!-- Main Content Area -->
-            <div class="flex-1 bg-white flex flex-col overflow-hidden">
-                <div class="px-8 pt-8 pb-4">
-                    <h2 class="text-3xl font-bold text-gray-900">Home</h2>
-                    
-                    <div class="flex items-center justify-between mt-6 border-b border-gray-100 pb-0">
-                        <div class="flex gap-2">
-                            <button class="px-3 py-1.5 text-sm font-medium rounded-md bg-gray-100 text-gray-900">For me</button>
-                            <button class="px-3 py-1.5 text-sm font-medium rounded-md text-gray-500 hover:bg-gray-50 hover:text-gray-900">Created</button>
-                            <button class="px-3 py-1.5 text-sm font-medium rounded-md text-gray-500 hover:bg-gray-50 hover:text-gray-900">All</button>
-                        </div>
-                        <button class="p-1.5 text-gray-400 hover:text-gray-600 rounded-md hover:bg-gray-50">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                    <!-- Org Switcher -->
+                    <div class="px-4 py-3">
+                        <button class="flex items-center gap-2 text-sm font-semibold text-gray-800 hover:bg-gray-200/50 p-1.5 rounded-md w-full transition">
+                            <div class="w-5 h-5 bg-gray-800 rounded text-white flex items-center justify-center text-xs font-bold">A</div>
+                            <span>Acme, Inc.</span>
+                            <svg class="w-4 h-4 text-gray-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg>
                         </button>
                     </div>
+
+                    <!-- New Post Button -->
+                    <div class="px-4 mb-4">
+                        <button class="w-full bg-white border border-gray-200 shadow-sm rounded-md py-1.5 px-3 text-sm font-medium text-gray-700 flex items-center justify-center gap-2 hover:bg-gray-50 transition">
+                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                            New post
+                            <span class="ml-auto text-xs text-gray-400 font-normal">Q</span>
+                        </button>
+                    </div>
+
+                    <!-- Navigation -->
+                    <nav class="px-2 space-y-0.5 flex-1 overflow-y-auto mock-ui-scroll">
+                        <a href="#" class="flex items-center gap-3 px-3 py-1.5 rounded-md bg-[#EBEBEA] text-gray-900 text-sm font-medium">
+                            <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                            Home
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-1.5 rounded-md text-gray-600 hover:bg-gray-200/50 text-sm font-medium">
+                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
+                            Inbox
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-1.5 rounded-md text-gray-600 hover:bg-gray-200/50 text-sm font-medium">
+                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                            Messages
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-1.5 rounded-md text-gray-600 hover:bg-gray-200/50 text-sm font-medium">
+                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            Docs
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-1.5 rounded-md text-gray-600 hover:bg-gray-200/50 text-sm font-medium">
+                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            Calls
+                        </a>
+
+                        <!-- Favorites -->
+                        <div class="pt-6 pb-2 px-3">
+                            <div class="flex items-center justify-between text-xs font-medium text-gray-400 mb-2">
+                                <span>Favorites</span>
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="space-y-1">
+                                <a href="#" class="flex items-center gap-3 px-0 py-1 rounded-md text-gray-600 hover:text-gray-900 text-sm">
+                                    <img src="https://placehold.co/24x24/333/FFF?text=R" class="w-5 h-5 rounded-full" alt="Ryan">
+                                    Ryan Nystrom
+                                </a>
+                                <a href="#" class="flex items-center gap-3 px-0 py-1 rounded-md text-gray-600 hover:text-gray-900 text-sm">
+                                    <img src="https://placehold.co/24x24/555/FFF?text=N" class="w-5 h-5 rounded-full" alt="Nick">
+                                    Nick Holden
+                                </a>
+                                <a href="#" class="flex items-center gap-3 px-0 py-1 rounded-md text-gray-600 hover:text-gray-900 text-sm">
+                                    <span class="w-5 h-5 flex items-center justify-center text-lg">🦁</span>
+                                    Founders <svg class="w-3 h-3 text-gray-400 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                </a>
+                                <a href="#" class="flex items-center gap-3 px-0 py-1 rounded-md text-gray-600 hover:text-gray-900 text-sm">
+                                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                    Investor update Q3 ...
+                                </a>
+                                <a href="#" class="flex items-center gap-3 px-0 py-1 rounded-md text-gray-600 hover:text-gray-900 text-sm">
+                                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                    Scratchpad
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
 
-                <div class="flex-1 overflow-y-auto px-8 pb-8 no-scrollbar">
-                    <!-- Input Area -->
-                    <div class="flex gap-3 p-4 border border-gray-100 rounded-xl shadow-sm mb-8 items-start">
-                        <div class="relative">
-                            <img src="https://placehold.co/32x32/555/fff?text=R" class="w-8 h-8 rounded-full border-2 border-white shadow-sm" alt="User">
-                            <div class="absolute -bottom-1 -right-1 bg-black text-white rounded-full w-4 h-4 flex items-center justify-center border border-white">
-                                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <input type="text" placeholder="What do you want to share?" class="w-full py-1.5 bg-transparent border-none focus:ring-0 text-gray-600 placeholder-gray-400">
-                        </div>
-                        <button class="px-3 py-1 bg-gray-400 text-white text-xs font-semibold rounded-md cursor-not-allowed">Post</button>
-                    </div>
-
-                    <!-- Today Section -->
-                    <div class="mb-2">
-                        <h3 class="text-xs font-medium text-gray-400 mb-4">Today</h3>
-                        
-                        <!-- Feed Item 1 -->
-                        <div class="group flex gap-4 mb-6 cursor-pointer">
-                            <div class="w-10 h-10 rounded-lg bg-black text-white flex items-center justify-center flex-shrink-0 font-bold text-lg">P.</div>
-                            <div class="flex-1 min-w-0">
-                                <div class="flex items-center justify-between">
-                                    <h4 class="text-sm font-semibold text-gray-900 truncate">Customer feedback: Add support for auto-recording calls</h4>
-                                    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700">
-                                        <span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-1.5"></span>
-                                        Plain
-                                    </span>
-                                </div>
-                                <div class="flex items-center gap-2 mt-0.5">
-                                    <span class="w-4 h-4 bg-gray-200 rounded text-[10px] flex items-center justify-center text-gray-600 font-medium">1</span>
-                                    <p class="text-sm text-gray-500 truncate">Ryan Nystrom: This is the fourth time this week, we should do this!</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Feed Item 2 -->
-                        <div class="group flex gap-4 mb-6 cursor-pointer">
-                            <img src="https://placehold.co/40x40/445566/fff?text=Q4" class="w-10 h-10 rounded-full flex-shrink-0" alt="Q4">
-                            <div class="flex-1 min-w-0">
-                                <div class="flex items-center justify-between">
-                                    <h4 class="text-sm font-semibold text-gray-900 truncate">Q4 initiatives</h4>
-                                    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-50 text-green-700">
-                                        <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                        Product
-                                    </span>
-                                </div>
-                                <div class="flex items-center gap-2 mt-0.5">
-                                    <span class="w-4 h-4 bg-gray-200 rounded text-[10px] flex items-center justify-center text-gray-600 font-medium">8</span>
-                                    <p class="text-sm text-gray-500 truncate">Brian Lovin: Hey everyone, I wanted to share what we'll be tackling through the end of the ye...</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Feed Item 3 (Cutoff) -->
-                        <div class="group flex gap-4 mb-6 cursor-pointer opacity-50">
-                            <div class="w-10 h-10 rounded-lg bg-purple-600 text-white flex items-center justify-center flex-shrink-0 font-bold text-lg">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            </div>
-                            <div class="flex-1 min-w-0">
-                                <div class="flex items-center justify-between">
-                                    <h4 class="text-sm font-semibold text-gray-900 truncate">Performance improvements</h4>
-                                </div>
-                                <div class="flex items-center gap-2 mt-0.5">
-                                    <p class="text-sm text-gray-500 truncate">Nick Holden: Just deployed the new caching layer...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Sidebar -->
-            <div class="w-[260px] bg-white border-l border-gray-200 flex flex-col flex-shrink-0">
-                <!-- Search -->
-                <div class="p-4">
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
-                            <svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </div>
-                        <input type="text" class="block w-full pl-8 pr-2 py-1.5 border-none bg-transparent rounded-md text-sm placeholder-gray-400 focus:ring-0" placeholder="Search people...">
-                    </div>
-                </div>
-
-                <!-- Online List -->
-                <div class="px-4 mt-2">
-                    <div class="flex items-center gap-1 mb-3 cursor-pointer">
-                        <svg class="w-3 h-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                        <h3 class="text-xs font-medium text-gray-400">4 online</h3>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-3">
-                            <div class="relative">
-                                <img src="https://placehold.co/32x32/666/fff?text=B" class="w-8 h-8 rounded-full" alt="Brian">
-                                <span class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white bg-green-400"></span>
-                            </div>
-                            <div>
-                                <p class="text-sm font-medium text-gray-900">Brian Lovin</p>
-                                <p class="text-xs text-gray-400">Update status</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-3">
-                            <div class="relative">
-                                <img src="https://placehold.co/32x32/00C8FF/fff?text=A" class="w-8 h-8 rounded-full" alt="Alexandru">
-                                <span class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white bg-green-400"></span>
-                            </div>
-                            <div>
-                                <p class="text-sm font-medium text-gray-900">Alexandru Țurcanu</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-3">
-                            <div class="relative">
-                                <img src="https://placehold.co/32x32/888/fff?text=N" class="w-8 h-8 rounded-full" alt="Nick">
-                                <span class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white bg-green-400"></span>
-                            </div>
-                            <div>
-                                <p class="text-sm font-medium text-gray-900">Nick Holden</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-3">
-                            <div class="relative">
-                                <img src="https://placehold.co/32x32/999/fff?text=R" class="w-8 h-8 rounded-full" alt="Ryan">
-                                <span class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white bg-green-400"></span>
-                            </div>
-                            <div>
-                                <p class="text-sm font-medium text-gray-900">Ryan Nystrom</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Team List -->
-                <div class="px-4 mt-8">
-                    <div class="flex items-center gap-1 mb-3 cursor-pointer">
-                        <svg class="w-3 h-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                        <h3 class="text-xs font-medium text-gray-400">Team</h3>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-3">
-                            <div class="relative">
-                                <img src="https://placehold.co/32x32/111/fff?text=D" class="w-8 h-8 rounded-full" alt="Dan">
-                            </div>
-                            <div>
-                                <p class="text-sm font-medium text-gray-900">Dan Philibin</p>
-                                <div class="flex items-center gap-1 text-xs text-gray-400">
-                                    <span>🧘‍♂️</span> Focus
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-3">
-                            <div class="relative">
-                                <img src="https://placehold.co/32x32/222/fff?text=P" class="w-8 h-8 rounded-full" alt="Paul">
-                            </div>
-                            <div>
-                                <p class="text-sm font-medium text-gray-900">Paul Boudet</p>
-                            </div>
+                <!-- Main Content -->
+                <div class="flex-1 bg-white flex flex-col min-w-0">
+                    <!-- Header -->
+                    <div class="px-8 pt-8 pb-4">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-2xl font-bold text-gray-900">Home</h2>
                         </div>
                         
-                         <div class="flex items-center gap-1 mt-6 text-xs text-gray-400 cursor-pointer hover:text-gray-600">
-                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Guests</span>
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-0">
+                            <div class="flex gap-1">
+                                <button class="px-3 py-1.5 bg-gray-100 text-gray-900 text-sm font-medium rounded-md">For me</button>
+                                <button class="px-3 py-1.5 text-gray-500 hover:text-gray-900 text-sm font-medium rounded-md">Created</button>
+                                <button class="px-3 py-1.5 text-gray-500 hover:text-gray-900 text-sm font-medium rounded-md">All</button>
+                            </div>
+                            <button class="p-2 text-gray-400 hover:text-gray-600">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                            </button>
                         </div>
                     </div>
+
+                    <!-- Feed -->
+                    <div class="flex-1 overflow-y-auto px-8 pb-8 mock-ui-scroll">
+                        
+                        <!-- Input Box -->
+                        <div class="border border-gray-200 rounded-lg p-3 flex gap-3 mb-8 shadow-sm">
+                            <div class="relative">
+                                <img src="https://placehold.co/32x32/333/FFF?text=U" class="w-8 h-8 rounded-full" alt="User">
+                                <div class="absolute -bottom-1 -right-1 bg-black text-white rounded-full w-4 h-4 flex items-center justify-center border border-white">
+                                    <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                                </div>
+                            </div>
+                            <div class="flex-1 flex items-center justify-between">
+                                <span class="text-gray-400 text-sm">What do you want to share?</span>
+                                <button class="bg-gray-400 text-white text-sm font-medium px-3 py-1 rounded shadow-sm cursor-default">Post</button>
+                            </div>
+                        </div>
+
+                        <!-- Today Section -->
+                        <div class="mb-2">
+                            <h3 class="text-xs font-medium text-gray-400 mb-4">Today</h3>
+                            
+                            <!-- Post 1 -->
+                            <div class="group flex gap-4 mb-6">
+                                <div class="flex-shrink-0 pt-1">
+                                    <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center text-white font-bold text-lg">P.</div>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between">
+                                        <div>
+                                            <h4 class="text-sm font-semibold text-gray-900 mb-0.5">Customer feedback: Add support for auto-recording calls</h4>
+                                            <div class="flex items-center gap-2 text-xs text-gray-500">
+                                                <span class="w-4 h-4 bg-gray-200 rounded text-[10px] flex items-center justify-center font-bold text-gray-600">1</span>
+                                                <span class="truncate">Ryan Nystrom: This is the fourth time this week, we should do this!</span>
+                                            </div>
+                                        </div>
+                                        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-gray-200 bg-white text-[10px] font-medium text-gray-600 shadow-sm whitespace-nowrap">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                            Plain
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Post 2 -->
+                            <div class="group flex gap-4">
+                                <div class="flex-shrink-0 pt-1">
+                                    <img src="https://placehold.co/40x40/444/FFF?text=Q4" class="w-10 h-10 rounded-full" alt="Q4">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between">
+                                        <div>
+                                            <h4 class="text-sm font-semibold text-gray-900 mb-0.5">Q4 initiatives</h4>
+                                            <div class="flex items-center gap-2 text-xs text-gray-500">
+                                                <span class="w-4 h-4 bg-gray-200 rounded text-[10px] flex items-center justify-center font-bold text-gray-600">8</span>
+                                                <span class="truncate">Brian Lovin: Hey everyone, I wanted to share what we'll be tackling through the end of the ye...</span>
+                                            </div>
+                                        </div>
+                                        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-gray-200 bg-white text-[10px] font-medium text-gray-600 shadow-sm whitespace-nowrap">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                            Product
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Sidebar -->
+                <div class="hidden lg:flex w-[260px] bg-white border-l border-gray-100 flex-col p-4">
+                    <!-- Search -->
+                    <div class="relative mb-6">
+                        <svg class="absolute left-2.5 top-2.5 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        <input type="text" placeholder="Search people..." class="w-full bg-transparent pl-9 pr-3 py-2 text-sm text-gray-600 placeholder-gray-400 focus:outline-none">
+                    </div>
+
+                    <!-- Online Users -->
+                    <div class="mb-6">
+                        <div class="flex items-center gap-2 text-xs font-medium text-gray-400 mb-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                            4 online
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <div class="relative">
+                                    <img src="https://placehold.co/32x32/222/FFF?text=B" class="w-8 h-8 rounded-full" alt="Brian">
+                                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full"></span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-sm font-medium text-gray-900 leading-none">Brian Lovin</span>
+                                    <span class="text-xs text-gray-400 mt-0.5">Update status</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="relative">
+                                    <img src="https://placehold.co/32x32/00C/FFF?text=A" class="w-8 h-8 rounded-full" alt="Alexandru">
+                                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full"></span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-sm font-medium text-gray-900 leading-none">Alexandru Ţurcanu</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="relative">
+                                    <img src="https://placehold.co/32x32/555/FFF?text=N" class="w-8 h-8 rounded-full" alt="Nick">
+                                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full"></span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-sm font-medium text-gray-900 leading-none">Nick Holden</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="relative">
+                                    <img src="https://placehold.co/32x32/0AA/FFF?text=R" class="w-8 h-8 rounded-full" alt="Ryan">
+                                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full"></span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-sm font-medium text-gray-900 leading-none">Ryan Nystrom</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team -->
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-medium text-gray-400 mb-3">
+                            <svg class="w-2 h-2" fill="currentColor" viewBox="0 0 8 8"><path d="M0 0l4 4 4-4H0z"/></svg>
+                            Team
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <div class="relative">
+                                    <img src="https://placehold.co/32x32/111/FFF?text=D" class="w-8 h-8 rounded-full" alt="Dan">
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-sm font-medium text-gray-900 leading-none">Dan Philibin</span>
+                                    <div class="flex items-center gap-1 mt-0.5">
+                                        <span class="text-[10px]">🧘</span>
+                                        <span class="text-xs text-gray-400">Focus</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="relative">
+                                    <img src="https://placehold.co/32x32/666/FFF?text=P" class="w-8 h-8 rounded-full" alt="Paul">
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-sm font-medium text-gray-900 leading-none">Paul Boudet</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 opacity-60">
+                                <div class="relative">
+                                    <svg class="w-3 h-3 text-gray-400 ml-1" fill="currentColor" viewBox="0 0 8 8"><path d="M0 0l4 4 4-4H0z"/></svg>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-xs font-medium text-gray-500 leading-none">Guests</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
+
     </div>
+
 </body>
 </html>
